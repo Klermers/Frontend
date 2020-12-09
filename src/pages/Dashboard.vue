@@ -106,6 +106,7 @@
   import * as chartConfigs from '@/components/Charts/config';
   import config from '@/config';
   import PieChart from '@/components/Charts/PieChart';
+  import {mapActions,mapGetters} from 'vuex';
 
   export default {
     components: {
@@ -183,6 +184,9 @@
       bigLineChartCategories() {
         return this.$t('dashboard.chartCategories');
       },
+      ...mapGetters({
+        prediction: "getprediction"
+      })
 
     },
     methods: {
@@ -208,6 +212,10 @@
         this.$refs.bigChart.updateGradients(chartData);
         this.bigLineChart.chartData = chartData;
         this.bigLineChart.activeIndex = index;
+      },
+      ...mapActions(["getPred"]),
+      getPred(){
+        this.getPred()
       }
     },
     mounted() {
