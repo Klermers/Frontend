@@ -119,9 +119,7 @@
       return {
         bigLineChart: {
           allData: [
-            [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
-            [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
-            [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
+
           ],
           activeIndex: 0,
           chartData: {
@@ -129,7 +127,6 @@
             [{ 
                 pointBorderColor: 'rgba(255,255,255,0)',
             }],
-            labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
           },
           extraOptions: chartConfigs.purpleChartOptions,
           gradientColors: config.colors.primaryGradient,
@@ -185,7 +182,7 @@
         return this.$t('dashboard.chartCategories');
       },
       ...mapGetters({
-        prediction: "getprediction"
+        predictions: "getPrediction"
       })
 
     },

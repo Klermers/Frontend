@@ -1,5 +1,4 @@
 import Sidebar from "./SideBar.vue";
-import SidebarLink from "./SidebarLink";
 
 const SidebarStore = {
   showSidebar: false,
@@ -19,7 +18,6 @@ const SidebarPlugin = {
 
     Vue.prototype.$sidebar = app.sidebarStore;
     Vue.component("side-bar", Sidebar);
-    Vue.component("sidebar-link", SidebarLink);
   }
 };
 
