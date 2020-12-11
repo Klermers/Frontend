@@ -2,7 +2,7 @@ import axios from 'axios'
 let url = 'http://127.0.0.1:5000'
 
 const state = {
-    predictions: ''
+    predictions: []
 }
 
 const getters = {
@@ -12,7 +12,7 @@ const getters = {
 }
 
 const actions = {
-    getPred(){
+    getPredict({commit}){
         axios.get('${url}' + '/Prediction',)
         .then((response) =>{
             commit('SET_PREDICTIONS',response.data)
@@ -22,6 +22,12 @@ const actions = {
             alert(error)
         }
         )
+    }
+}
+
+const mutations = {
+    SET_PREDICTIONS(state,predictions){
+        state.predictions = predictions
     }
 }
 

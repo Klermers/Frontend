@@ -119,7 +119,7 @@
       return {
         bigLineChart: {
           allData: [
-
+            predictions.close
           ],
           activeIndex: 0,
           chartData: {
@@ -143,7 +143,6 @@
               borderWidth: 2,
               borderDash: [],
               borderDashOffset: 0.0,
-              data: [30, 20, 20, 15, 25, 15],
               borderColor: ["red", "blue", "red", "blue", "red", "blue"], 
             }]
           },
@@ -181,9 +180,6 @@
       bigLineChartCategories() {
         return this.$t('dashboard.chartCategories');
       },
-      ...mapGetters({
-        predictions: "getPrediction"
-      })
 
     },
     methods: {
@@ -210,9 +206,15 @@
         this.bigLineChart.chartData = chartData;
         this.bigLineChart.activeIndex = index;
       },
-      ...mapActions(["getPred"]),
-      getPred(){
-        this.getPred()
+      ...mapActions(["getPredict"]),
+      getPredictions(){
+        this.getPredict()
+      },
+      ...mapGetters({
+        predictions: "getPrediction"
+      }),
+      created() {
+        this.getPredictions();
       }
     },
     mounted() {
